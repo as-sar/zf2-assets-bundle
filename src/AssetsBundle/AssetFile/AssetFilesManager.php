@@ -324,6 +324,11 @@ class AssetFilesManager {
         if (preg_match('/^\/|http/', $sUrl)) {
             return $aMatches[0];
         }
+        
+        // base64
+        if (preg_match('/^data:/', $sUrl)) {
+            return $aMatches[0];
+        }        
 
         // Split arguments
         if (strpos($sUrl, '?') !== false) {
